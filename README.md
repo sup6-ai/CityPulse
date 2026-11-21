@@ -1,202 +1,393 @@
-# CityPulse
+# Atria-CityPulse
 
-CityPulse is a Linux and Windows Subsystem for Linux (WSL) practice repository. It documents hands-on exercises covering directory management, file operations, system monitoring, shell scripts, permissions, and basic environment commands.
+This repository contains my Linux command-line homework and the screenshots recorded during the exercises. It demonstrates basic WSL setup, directory management, file management, disk usage, permissions, processes, and environment commands.
 
-The repository is primarily a learning artifact: it contains text files and command screenshots rather than an application or executable service.
+## Environment
 
-## Repository Overview
+- **Name:** Supriya
+- **Operating System:** Windows with Ubuntu through WSL
+- **Repository:** CityPulse
+- **Purpose:** Linux command-line practice
 
-| Item | Description |
-| --- | --- |
-| `README.md` | Project documentation |
-| `script.sh` | Shell script placeholder; currently empty |
-| `data/` | Text files used in Linux file-management exercises |
-| `linux/` | Duplicate/organized Linux exercise files |
-| `task1.png`, `task1.1.png` | WSL and directory setup screenshots |
-| `task 2.png`, `task2.1.png` | Directory/file move and cleanup screenshots |
-| `task 3.png` | Disk usage and system filesystem screenshot |
-| `task 4.png` | Shell script, permission, and process screenshots |
-| `task 5.png` | Environment and user identity command screenshot |
-| `wsl installed.png` | WSL installation screenshot |
-| `1.png`, `22.png` | Initial Linux exercise screenshots |
+## Homework Overview
 
-## Completed Exercises
+| Homework | Topic | Screenshot |
+| --- | --- | --- |
+| Question 1 | Create and remove directories | `task1.png`, `task1.1.png` |
+| Question 2 | Remove files and directories | `task 2.png`, `task2.1.png` |
+| Question 3 | Rename files and check disk usage | `task 3.png` |
+| Question 4 | Change file permissions | `task 4.png` |
+| Question 5 | View running processes and system environment | `task 5.png`, `wsl-installed.png` |
 
-### 1. WSL and Directory Setup
+---
 
-- Installed and verified WSL.
-- Opened Ubuntu through WSL.
-- Created a working directory with `mkdir`.
-- Listed repository and directory contents with `ls`.
-- Practiced moving files into new directories.
+# Question 1: How do you create and remove directories?
 
-Relevant evidence: `wsl installed.png`, `task1.png`, and `task1.1.png`.
+## Explanation
 
-### 2. File and Directory Operations
+The `mkdir` command creates a directory. The `rmdir` command removes a directory only when that directory is empty. The directory must not contain files or subdirectories.
 
-The exercises demonstrate common Linux file-management commands:
+## Commands Used
 
 ```bash
 mkdir temp-dir
-mkdir data linux
 ls
-mv README.md temp-dir
-mv temp-dir/README.md .
+rmdir temp-dir
+ls
+```
+
+## Step-by-Step Procedure
+
+1. Open Ubuntu or Windows Subsystem for Linux.
+2. Move to the project directory:
+
+   ```bash
+   cd /mnt/c/Users/Priya\ Darshini/Desktop/CityPulse_Supriya/CityPulse
+   ```
+
+3. Create a directory named `temp-dir`:
+
+   ```bash
+   mkdir temp-dir
+   ```
+
+4. Confirm that the directory was created:
+
+   ```bash
+   ls
+   ```
+
+5. Remove the empty directory:
+
+   ```bash
+   rmdir temp-dir
+   ```
+
+The directory named `temp-dir` should no longer appear after running `ls`.
+
+## Screenshot Evidence
+
+[![Creating and removing temp-dir](task1.png)](task1.png)
+
+[![Creating data and linux directories](task1.1.png)](task1.1.png)
+
+## Important Notes
+
+- `mkdir directory-name` creates a directory.
+- `rmdir directory-name` removes an empty directory.
+- `rmdir` cannot remove a directory that contains files or subdirectories.
+
+---
+
+# Question 2: How do you remove files and directories recursively?
+
+## Explanation
+
+The `rm` command removes files. To remove a directory and all of its contents, use `rm -r`. To force removal and avoid prompts, use `rm -rf`, but this command must be used carefully because deleted data may not be recoverable.
+
+## Commands Used
+
+```bash
+touch 123.png
+rm 123.png
+
+mkdir linux
 rm -r linux
 ```
 
-Other operations include:
+## Step-by-Step Procedure
 
-- Creating text files and directories.
-- Moving files between folders.
-- Listing directory contents.
-- Removing directories.
-- Organizing exercise data into `data/` and `linux/`.
+### Remove a File
 
-Relevant evidence: `task 2.png` and `task2.1.png`.
+Create or identify the file first:
 
-### 3. Filesystem and System Information
+```bash
+touch 123.png
+ls
+```
 
-The system-information exercise uses commands to inspect mounted storage and the runtime environment.
+Remove the file:
+
+```bash
+rm 123.png
+ls
+```
+
+The `123.png` file should disappear from the directory listing.
+
+### Remove a Directory and Its Contents
+
+Create a directory for practice:
+
+```bash
+mkdir linux
+```
+
+Remove it recursively:
+
+```bash
+rm -r linux
+```
+
+Confirm that it was removed:
 
 ```bash
 ls
-df
-df -h
-mount
 ```
 
-The completed screenshot shows filesystem sizes, available space, mount points, and WSL-mounted Windows drives.
+> **Warning:** `rm -r` permanently deletes the directory and everything inside it. Always confirm the path before running the command.
 
-Relevant evidence: `task 3.png`.
+## Screenshot Evidence
 
-### 4. Shell Scripts, Permissions, and Processes
+[![Removing a file with rm](task%202.png)](task%202.png)
 
-The exercises cover shell script creation and Linux permissions.
+[![Removing a directory recursively](task2.1.png)](task2.1.png)
+
+---
+
+# Question 3: How do you rename files and check disk usage?
+
+## Explanation
+
+The `mv` command can rename a file or move it to another location. The `df` command displays disk and filesystem usage.
+
+## Rename a File
+
+Before renaming:
+
+```bash
+ls
+```
+
+Rename `2.png` to `22.png`:
+
+```bash
+mv 2.png 22.png
+```
+
+Verify the new name:
+
+```bash
+ls
+```
+
+The general syntax is:
+
+```bash
+mv old-name new-name
+```
+
+## Check Disk Usage
+
+Display basic disk usage:
+
+```bash
+df
+```
+
+Display disk usage in a readable format:
+
+```bash
+df -h
+```
+
+The `-h` option displays sizes in human-readable units such as KB, MB, and GB.
+
+Useful output columns include:
+
+| Column | Meaning |
+| --- | --- |
+| Filesystem | Storage device or mounted filesystem |
+| Size | Total size |
+| Used | Space currently used |
+| Avail | Available space |
+| Use% | Percentage of used space |
+| Mounted on | Filesystem mount location |
+
+## Screenshot Evidence
+
+[![Renaming a file and checking disk usage](task%203.png)](task%203.png)
+
+---
+
+# Question 4: How do Linux file permissions work?
+
+## Explanation
+
+Linux assigns permissions to the owner, group, and other users.
+
+| Permission | Symbol | Meaning |
+| --- | --- | --- |
+| Read | `r` | Read file contents or list directory contents |
+| Write | `w` | Modify a file or change directory contents |
+| Execute | `x` | Run a file or enter a directory |
+
+The `chmod` command changes permissions. Permission modes contain three digits:
+
+- Owner permissions
+- Group permissions
+- Other-user permissions
+
+The numeric values are:
+
+| Number | Permission |
+| --- | --- |
+| `4` | Read |
+| `2` | Write |
+| `1` | Execute |
+
+## Commands Used
 
 ```bash
 touch script.sh
-ls
 ls -l script.sh
 chmod +x script.sh
+ls -l script.sh
 chmod 644 script.sh
+ls -l script.sh
+```
+
+## Step-by-Step Procedure
+
+Create an empty shell script:
+
+```bash
+touch script.sh
+```
+
+View its initial permissions:
+
+```bash
+ls -l script.sh
+```
+
+Add execute permission:
+
+```bash
+chmod +x script.sh
+```
+
+Set read/write permission for the owner and read permission for others:
+
+```bash
+chmod 644 script.sh
+```
+
+## Common Permission Modes
+
+| Mode | Meaning |
+| --- | --- |
+| `644` | Owner: read/write; group and others: read |
+| `755` | Owner: read/write/execute; group and others: read/execute |
+| `777` | Owner, group, and others: read/write/execute |
+
+## Screenshot Evidence
+
+[![Changing script.sh permissions](task%204.png)](task%204.png)
+
+---
+
+# Question 5: How do you view running processes and system information?
+
+## Explanation
+
+The `ps` command shows running processes. `ps aux` provides a system-wide process list with the process owner, process ID, CPU usage, memory usage, and command.
+
+## Commands Used
+
+```bash
+ps aux
+whoami
+id
+hostname
+uname -a
+who
+```
+
+## View Running Processes
+
+```bash
 ps aux
 ```
 
-Key concepts demonstrated:
+Important columns include:
 
-- Creating an empty shell script with `touch`.
-- Viewing file permissions with `ls -l`.
-- Making a script executable with `chmod +x`.
-- Restoring standard read/write permissions with `chmod 644`.
-- Inspecting running processes with `ps aux`.
+| Column | Meaning |
+| --- | --- |
+| `USER` | Process owner |
+| `PID` | Process ID |
+| `%CPU` | CPU usage |
+| `%MEM` | Memory usage |
+| `STAT` | Current process state |
+| `COMMAND` | Command that started the process |
 
-The repository's `script.sh` is currently empty and can be used as the starting point for future script work.
-
-Relevant evidence: `task 4.png`.
-
-### 5. Environment and User Commands
-
-The final exercise demonstrates Linux identity and environment commands:
+## View User and System Information
 
 ```bash
 whoami
 id
-id -run
-echo "$USER"
-echo "$SUSER"
-logname
 hostname
-uname
 uname -a
+```
+
+These commands display:
+
+- The current username.
+- User and group IDs.
+- The computer or WSL hostname.
+- Kernel and system details.
+
+## Check Logged-In Users
+
+```bash
 who
 w
-id -un
 ```
 
-These commands show:
+These commands show active login sessions and terminal activity.
 
-- The current user name.
-- User and process IDs.
-- Login and hostname information.
-- Kernel and system details.
-- Active logged-in users and system uptime.
+## Screenshot Evidence
 
-Environment variables such as `$USER` and system values are displayed directly in the terminal.
+[![Listing running processes with ps aux](task%205.png)](task%205.png)
 
-Relevant evidence: `task 5.png`.
+[![Checking WSL installation](wsl-installed.png)](wsl-installed.png)
 
-## Data Files
+---
 
-The `data/` and `linux/` directories contain simple text data used while practicing copy and move operations.
+# Screenshot Reference
 
-Example contents:
+| Screenshot | Description |
+| --- | --- |
+| `task1.png` | Creating and removing an empty directory |
+| `task1.1.png` | Creating directories and organizing project files |
+| `task 2.png` | Removing a file with `rm` |
+| `task2.1.png` | Removing a directory recursively |
+| `task 3.png` | Renaming a file and using `df -h` |
+| `task 4.png` | Creating and changing permissions for `script.sh` |
+| `task 5.png` | Listing running processes with `ps aux` |
+| `wsl-installed.png` | Verifying WSL installation |
 
-```text
-students
-hello
-Hello Students
-```
+# Project Files
 
-Additional files include:
+| Item | Purpose |
+| --- | --- |
+| `README.md` | Homework documentation |
+| `script.sh` | Practice shell script file |
+| `data/` | Text files used for file-management exercises |
+| `linux/` | Directory used for directory-management exercises |
+| `1.png` | Initial file exercise image |
+| `2.png` | Image renamed during the file-management exercise |
 
-- `data/data3.txt`
-- `data/data4.txt`
-- `linux/data1.txt`
-- `linux/data3.txt`
-- `linux/data5.txt`
-- `linux/data6.txt`
+# Learning Outcomes
 
-## Getting Started
+After completing these exercises, I practiced:
 
-### Prerequisites
-
-- Windows 10 or Windows 11
-- WSL enabled
-- An installed Linux distribution, such as Ubuntu
-- Git
-
-### Clone the Repository
-
-```bash
-git clone https://github.com/sup6-ai/CityPulse.git
-cd CityPulse
-```
-
-### Open the Exercises in WSL
-
-```bash
-wsl
-cd /mnt/c/Users/<your-user>/Desktop/CityPulse_Supriya/CityPulse
-ls
-```
-
-Replace the path with the location of the repository on your system.
-
-## Suggested Git Workflow
-
-```bash
-git status
-git add .
-git commit -m "Complete Linux exercise"
-git push origin main
-```
-
-## Learning Outcomes
-
-This repository demonstrates practical familiarity with:
-
-- Installing and using WSL.
-- Working in the Linux terminal.
-- Creating and organizing directories.
-- Creating, moving, copying, and removing files.
-- Inspecting disk and filesystem usage.
-- Managing file permissions.
-- Viewing running processes.
-- Reading environment variables.
-- Identifying the logged-in user and system.
-- Adding command evidence and documentation to Git.
-
-## Screenshots
-
-The PNG files provide visual evidence of the commands executed during each exercise. Open them directly in GitHub or a local image viewer to review the terminal output.
+- Opening and using WSL.
+- Creating and removing directories.
+- Removing files and directories safely.
+- Renaming files with `mv`.
+- Checking disk usage with `df -h`.
+- Understanding and changing Linux permissions.
+- Viewing running processes with `ps aux`.
+- Identifying the current user and system environment.
+- Documenting command-line work with screenshots.
