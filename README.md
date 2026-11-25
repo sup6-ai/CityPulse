@@ -354,10 +354,17 @@ These commands show active login sessions and terminal activity.
 
 ---
 Q1 : To create a json object
+
+
 <img width="223" height="143" alt="image" src="https://github.com/user-attachments/assets/fe1df74a-9cc9-48ce-96ff-a1eb3319e1b9" />
 
 
+
+
+
 Q2:  To create a json object with array
+
+
 <img width="238" height="206" alt="image" src="https://github.com/user-attachments/assets/04c6b706-93ec-41de-b474-4725884d1efa" />
 
 
