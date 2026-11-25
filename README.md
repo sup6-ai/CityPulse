@@ -353,6 +353,27 @@ These commands show active login sessions and terminal activity.
 [![Checking WSL installation](wsl-installed.png)](wsl-installed.png)
 
 ---
+Q1 : To create a json object
+{
+    "city": "Bangalore",
+    "state": "Karnataka",
+    "country": "India",
+    "temperature": 27,
+    "weather": "Cloudy"
+}
+
+Q2:  To create a json object with array
+{
+    "city": "Bangalore",
+    "areas": [
+        "Hebbal",
+        "RT Nagar",
+        "Malleshwaram",
+        "Indiranagar"
+    ],
+    "weather": "Cloudy"
+}
+
 
 # Screenshot Reference
 
