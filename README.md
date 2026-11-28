@@ -356,14 +356,9 @@ These commands show active login sessions and terminal activity.
 Q1 : To create a json object
 
 {
-    "name": "Supriya",
-    "age": 19,
-    "course": "Engineering",
+    "name": "Supriya",                                                                                                                                                                                                     "age": 19,                                                                                                                                                                                                             "course": "Engineering", 
     "college": "Atria University"
 }
-
-
-
 
 
 
