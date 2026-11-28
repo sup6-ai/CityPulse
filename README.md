@@ -382,27 +382,3 @@ Q2:  To create a json object with array
 | `task 5.png` | Listing running processes with `ps aux` |
 | `wsl-installed.png` | Verifying WSL installation |
 
-# Project Files
-
-| Item | Purpose |
-| --- | --- |
-| `README.md` | Homework documentation |
-| `script.sh` | Practice shell script file |
-| `data/` | Text files used for file-management exercises |
-| `linux/` | Directory used for directory-management exercises |
-| `1.png` | Initial file exercise image |
-| `2.png` | Image renamed during the file-management exercise |
-
-# Learning Outcomes
-
-After completing these exercises, I practiced:
-
-- Opening and using WSL.
-- Creating and removing directories.
-- Removing files and directories safely.
-- Renaming files with `mv`.
-- Checking disk usage with `df -h`.
-- Understanding and changing Linux permissions.
-- Viewing running processes with `ps aux`.
-- Identifying the current user and system environment.
-- Documenting command-line work with screenshots.

@@ -1,0 +1,18 @@
+{
+    "name": "Supriya",
+    "age": 19,
+    "course": "Engineering",
+    "college": "Atria University"
+}
+
+
+{
+    "name": "Supriya",
+    "age": 19,
+    "skills": [
+        "Python",
+        "JavaScript",
+        "SQL",
+        "HTML"
+    ]
+}
