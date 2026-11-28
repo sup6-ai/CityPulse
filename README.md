@@ -355,26 +355,15 @@ These commands show active login sessions and terminal activity.
 ---
 Q1 : To create a json object
 
-{
-    "name": "Supriya",                                                                                                                                                                                                     "age": 19,                                                                                                                                                                                                             "course": "Engineering", 
-    "college": "Atria University"
-}
+<img width="298" height="136" alt="image" src="https://github.com/user-attachments/assets/7547fcf6-1b1a-452d-9664-c9cbd2de06c5" />
+
 
 
 
 Q2:  To create a json object with array
 
+<img width="396" height="244" alt="image" src="https://github.com/user-attachments/assets/82aa25c6-2137-4b84-8c2a-4fa1ca389785" />
 
-{
-    "name": "Supriya",
-    "age": 19,
-    "skills": [
-        "Python",
-        "JavaScript",
-        "SQL",
-        "HTML"
-    ]
-}
 
 
 
